@@ -37,7 +37,7 @@ deployment edits code.
 |---|---|---|
 | Display | real desktop; headful works directly | **Xvfb** `:99` + `export DISPLAY=:99` if headful |
 | Headless | ok | ok â€” default; avoids the display entirely |
-| Chrome sandbox | n/a | root/CI needs `--no-sandbox` (auto-on for POSIX root) |
+| Chrome sandbox | n/a | root/CI needs `--no-sandbox` (auto-on for POSIX root; set `TENANTCHECK_BROWSER_NO_SANDBOX=1` where user namespaces are blocked, e.g. Docker or GitHub runners) |
 | Channel / binary | Playwright's bundled Chromium | same, or `channel=chrome` / `executable_path` |
 | Python path | repo root | `PYTHONPATH=â€¦/src:â€¦` |
 

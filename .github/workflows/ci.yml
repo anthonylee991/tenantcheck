@@ -26,6 +26,10 @@ jobs:
   browser:
     name: browser tests
     runs-on: ubuntu-latest
+    env:
+      # GH runners have no unprivileged user namespaces, so Chromium's sandbox
+      # cannot start. This is the same switch a container deployment uses.
+      TENANTCHECK_BROWSER_NO_SANDBOX: "1"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
