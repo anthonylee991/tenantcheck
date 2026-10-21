@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-10-21T22:05:31",
+  "target": "fixture frontend",
+  "cases": [
+    {
+      "case": "meta tag",
+      "expected_verified": true,
+      "verified": true,
+      "method": "meta_tag"
+    },
+    {
+      "case": "well-known file",
+      "expected_verified": true,
+      "verified": true,
+      "method": "well_known"
+    },
+    {
+      "case": "dns txt",
+      "expected_verified": true,
+      "verified": true,
+      "method": "dns_txt"
+    },
+    {
+      "case": "no proof",
+      "expected_verified": false,
+      "verified": false,
+      "method": null
+    },
+    {
+      "case": "wrong token",
+      "expected_verified": false,
+      "verified": false,
+      "method": null
+    }
+  ],
+  "proof_recall": 1.0,
+  "false_accepts": 0,
+  "wall_clock_seconds": 0.05
+}

@@ -158,3 +158,4 @@ private targets (`blocked_target`) so it can't be pointed inside a network.
 | 20261020T224932 | URL-in â†’ browser fallback (non-Supabase app; vuln+secure) | 1 | 1 | 1.00 | 0 | url-browser-20261020T224932.json |
 | 20261020T224945 | Local loopback + BYOA (no token; two supplied accounts) | 1 | 1 | 1.00 | 0 | local-20261020T224945.json |
 | 20261020T224948 | Traffic discovery B3 (XHR/fetch â†’ collection + record, fixture) | 2 | 2 | 1.00 | 0 | network-20261020T224948.json |
+| 20261021T220531 | Ownership gate (3 real proofs + 2 non-proofs, fixture) | 3 | 3 | 1.00 | 0 | ownership-20261021T220531.json |
