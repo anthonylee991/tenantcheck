@@ -34,4 +34,4 @@ jobs:
           cache: pip
       - run: pip install -e ".[dev,browser]"
       - run: patchright install --with-deps chromium
-      - run: pytest -q tests/test_browser.py tests/test_ui.py tests/test_network.py tests/test_browser_target.py tests/test_byoa.py tests/test_local.py tests/test_url_browser.py
+      - run: pytest -q
