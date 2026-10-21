@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tenantcheck"
+version = "0.1.0"
+description = "Black-box tenant isolation checks for deployed apps: can one account reach another's data?"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "Anthony Lee" }]
+keywords = [
+    "security",
+    "isolation",
+    "idor",
+    "bola",
+    "multi-tenant",
+    "supabase",
+    "black-box",
+    "testing",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = [
+    # Control apps + the submission API
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    # Form-encoded POSTs in the fixture apps
+    "python-multipart>=0.0.12",
+    # HTTP client for black-box probing
+    "httpx>=0.28.0",
+    # DNS TXT ownership proof (optional at runtime; imported lazily)
+    "dnspython>=2.6.0",
+    # Data validation
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.7.0",
+    # CLI
+    "typer>=0.15.0",
+    "rich>=13.9.0",
+]
+
+[project.optional-dependencies]
+browser = [
+    # Driving unfamiliar UIs: signup, discovery, token sessions, writes
+    "patchright>=1.0.0",
+    "playwright>=1.40.0",
+]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.25.0",
+    "ruff>=0.8.0",
+]
+
+[project.scripts]
+tenantcheck = "verifier.cli:app"
+
+[project.urls]
+Homepage = "https://github.com/anthonylee991/tenantcheck"
+Repository = "https://github.com/anthonylee991/tenantcheck"
+Issues = "https://github.com/anthonylee991/tenantcheck/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/verifier"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

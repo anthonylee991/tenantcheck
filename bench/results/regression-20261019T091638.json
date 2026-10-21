@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-10-19T09:16:38",
+  "baseline": "control:good",
+  "cases": [
+    {
+      "case": "no change",
+      "expected": 0,
+      "found": 0,
+      "findings": []
+    },
+    {
+      "case": "field silently dropped",
+      "expected": 1,
+      "found": 1,
+      "findings": [
+        "read one invoice changed"
+      ]
+    },
+    {
+      "case": "endpoint starts failing",
+      "expected": 1,
+      "found": 1,
+      "findings": [
+        "read one invoice changed"
+      ]
+    }
+  ],
+  "regression_recall": 1.0,
+  "false_positive_on_no_change": 0,
+  "wall_clock_seconds": 0.05
+}

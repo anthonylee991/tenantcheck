@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-10-19T11:21:06",
+  "app": "control-demo",
+  "timeline": [
+    {
+      "step": "baseline",
+      "app_state": "good",
+      "versions": 1,
+      "established": true,
+      "advanced": true,
+      "findings": 0
+    },
+    {
+      "step": "still green",
+      "app_state": "good",
+      "versions": 2,
+      "established": false,
+      "advanced": true,
+      "findings": 0
+    },
+    {
+      "step": "silent regression",
+      "app_state": "regressed_field",
+      "versions": 2,
+      "established": false,
+      "advanced": false,
+      "findings": 1
+    },
+    {
+      "step": "fixed",
+      "app_state": "good",
+      "versions": 3,
+      "established": false,
+      "advanced": true,
+      "findings": 0
+    }
+  ],
+  "baseline_versions": 3,
+  "regression_recall": 1.0,
+  "false_positives_on_good": 0,
+  "wall_clock_seconds": 0.12
+}

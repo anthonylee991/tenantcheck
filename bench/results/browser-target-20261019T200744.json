@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-10-19T20:07:44",
+  "outcome": {
+    "vulnerable": {
+      "engine": "patchright",
+      "resources_probed": 1,
+      "findings": [
+        {
+          "check": "isolation",
+          "title": "One account can read another account's data"
+        }
+      ],
+      "seconds": 2.5
+    },
+    "secure": {
+      "engine": "patchright",
+      "resources_probed": 1,
+      "findings": [],
+      "seconds": 2.54
+    }
+  },
+  "expected": {
+    "cross_account_reads": 1,
+    "false_positives": 0
+  },
+  "found": 1,
+  "false_positives": 0,
+  "ok": true
+}

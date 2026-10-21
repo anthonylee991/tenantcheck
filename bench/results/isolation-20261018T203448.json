@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-10-18T20:34:48",
+  "cases": {
+    "vuln": {
+      "expected_bugs": 2,
+      "found": 2,
+      "resources_probed": 1,
+      "checks": [
+        "cross_account_write",
+        "isolation"
+      ]
+    },
+    "secure": {
+      "expected_bugs": 0,
+      "found": 0,
+      "resources_probed": 1,
+      "checks": []
+    }
+  },
+  "isolation_recall": 1.0,
+  "false_positive_on_clean_app": 0.0
+}

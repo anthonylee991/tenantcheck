@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-10-18T20:32:49",
+  "target": "OWASP Juice Shop (external, not authored by us)",
+  "url": "http://localhost:3011",
+  "expected_bugs": 1,
+  "found": 1,
+  "recall": 1.0,
+  "checks": [
+    "isolation"
+  ],
+  "findings": [
+    {
+      "check": "isolation",
+      "title": "One account can read another account's data",
+      "evidence": {
+        "method": "GET",
+        "path": "/rest/basket/8",
+        "status": 200,
+        "as": "vrfr_b+3aa02f@example.test",
+        "owner": "8",
+        "body": "{\"status\":\"success\",\"data\":{\"id\":8,\"coupon\":null,\"UserId\":27,\"createdAt\":\"2026-10-18T19:32:49.360Z\",\"updatedAt\":\"2026-10-18T19:32:49.360Z\",\"Products\":[]}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-10-19T13:26:24",
+  "target": "http://127.0.0.1:57994/",
+  "outcome": {
+    "engine": "patchright",
+    "headless": true,
+    "title": "Invoice App",
+    "modulepreload_href": "/assets/index-abc123.js",
+    "launch_seconds": 13.53,
+    "navigate_seconds": 6.12,
+    "read_seconds": 0.04
+  },
+  "expected_title": "Invoice App",
+  "ok": true
+}

@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-10-19T09:03:21",
+  "frontend": "https://fixture-app.example",
+  "discovered_stack": "supabase",
+  "discovered_supabase_url": "http://127.0.0.1:54421",
+  "discovered_key_prefix": "eyJhbGciOiJI...",
+  "tables_probed": 2,
+  "flagged_tables": [
+    "items"
+  ],
+  "expected_buggy": [
+    "items"
+  ],
+  "expected_clean": [
+    "items_secure"
+  ],
+  "false_positive_on_clean_table": 0.0,
+  "findings": [
+    "One account can read another account's data",
+    "A record is readable without signing in",
+    "One account can change another account's data",
+    "A record can be changed without signing in"
+  ],
+  "wall_clock_seconds": 0.91
+}

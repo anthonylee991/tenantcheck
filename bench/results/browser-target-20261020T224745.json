@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-10-20T22:47:45",
+  "outcome": {
+    "vulnerable": {
+      "engine": "patchright",
+      "resources_probed": 2,
+      "findings": [
+        {
+          "check": "isolation",
+          "title": "One account can read another account's data"
+        },
+        {
+          "check": "cross_account_write",
+          "title": "One account can change another account's data"
+        },
+        {
+          "check": "isolation",
+          "title": "One account can read another account's data"
+        }
+      ],
+      "seconds": 3.62
+    },
+    "secure": {
+      "engine": "patchright",
+      "resources_probed": 2,
+      "findings": [],
+      "seconds": 3.51
+    }
+  },
+  "expected": {
+    "cross_account_reads": 1,
+    "cross_account_writes": 1,
+    "false_positives": 0
+  },
+  "found": 1,
+  "writes_found": 1,
+  "false_positives": 0,
+  "ok": true
+}

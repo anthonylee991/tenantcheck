@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-10-20T22:49:48",
+  "target": "http://127.0.0.1:63717",
+  "outcome": {
+    "engine": "patchright",
+    "provisioned": true,
+    "calls": 3,
+    "candidates": [
+      {
+        "method": "GET",
+        "path": "/api/invoices",
+        "kind": "collection",
+        "identifier": null
+      },
+      {
+        "method": "GET",
+        "path": "/api/invoices/inv-54aa8bca",
+        "kind": "record",
+        "identifier": "inv-54aa8bca"
+      }
+    ],
+    "provision_seconds": 2.2,
+    "capture_seconds": 0.04
+  },
+  "expected": {
+    "collection": "/api/invoices",
+    "record": "/api/invoices/<id>"
+  },
+  "found_collection": true,
+  "found_record": true,
+  "ok": true
+}

@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-10-20T16:47:03",
+  "outcome": {
+    "vulnerable": {
+      "stack": "browser",
+      "config": false,
+      "resources_probed": 1,
+      "findings": [
+        {
+          "check": "isolation",
+          "title": "One account can read another account's data"
+        }
+      ],
+      "seconds": 4.48
+    },
+    "secure": {
+      "stack": "browser",
+      "config": false,
+      "resources_probed": 1,
+      "findings": [],
+      "seconds": 4.48
+    }
+  },
+  "expected": {
+    "stack": "browser",
+    "cross_account_reads": 1,
+    "false_positives": 0
+  },
+  "found": 1,
+  "false_positives": 0,
+  "ok": true
+}

@@ -1,0 +1,30 @@
+{
+  "timestamp": "2026-10-20T20:07:34",
+  "outcome": {
+    "vulnerable": {
+      "ownership": "loopback",
+      "resources_probed": 1,
+      "findings": [
+        {
+          "check": "isolation",
+          "title": "One account can read another account's data"
+        }
+      ],
+      "seconds": 3.97
+    },
+    "secure": {
+      "ownership": "loopback",
+      "resources_probed": 1,
+      "findings": [],
+      "seconds": 4.27
+    }
+  },
+  "expected": {
+    "ownership": "loopback",
+    "cross_account_reads": 1,
+    "false_positives": 0
+  },
+  "found": 1,
+  "false_positives": 0,
+  "ok": true
+}

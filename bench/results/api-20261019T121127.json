@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-10-19T12:11:27",
+  "target": "http://frontend",
+  "note": "ownership real (fixture over ASGI); scan stubbed",
+  "steps": [
+    {
+      "step": "submit (no proof)",
+      "status": "ownership_required"
+    },
+    {
+      "step": "publish proof, recheck",
+      "status": "complete",
+      "findings": 1
+    },
+    {
+      "step": "submit (proven)",
+      "status": "complete"
+    }
+  ],
+  "expected_statuses": [
+    "ownership_required",
+    "complete",
+    "complete"
+  ],
+  "observed_statuses": [
+    "ownership_required",
+    "complete",
+    "complete"
+  ],
+  "ownership_enforced": true,
+  "wall_clock_seconds": 0.06
+}

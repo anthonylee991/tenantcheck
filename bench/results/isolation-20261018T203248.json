@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-10-18T20:32:48",
+  "cases": {
+    "vuln": {
+      "expected_bugs": 1,
+      "found": 1,
+      "resources_probed": 1,
+      "checks": [
+        "isolation"
+      ]
+    },
+    "secure": {
+      "expected_bugs": 0,
+      "found": 0,
+      "resources_probed": 1,
+      "checks": []
+    }
+  },
+  "isolation_recall": 1.0,
+  "false_positive_on_clean_app": 0.0
+}

@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-10-19T09:03:20",
+  "target": "Supabase (RLS, throwaway)",
+  "url": "http://127.0.0.1:54421",
+  "tables_probed": 2,
+  "expected_buggy_tables": [
+    "items"
+  ],
+  "expected_clean_tables": [
+    "items_secure"
+  ],
+  "flagged_tables": [
+    "items"
+  ],
+  "isolation_recall": 1.0,
+  "false_positive_on_clean_table": 0.0,
+  "wall_clock_seconds": 0.5,
+  "findings": [
+    {
+      "check": "isolation",
+      "title": "One account can read another account's data",
+      "path": "/rest/v1/items?select=*"
+    },
+    {
+      "check": "unauthenticated",
+      "title": "A record is readable without signing in",
+      "path": "/rest/v1/items?select=*"
+    },
+    {
+      "check": "cross_account_write",
+      "title": "One account can change another account's data",
+      "path": "/rest/v1/items?id=eq.9d51c966-4db9-478b-a00e-91bdcca4cc0f"
+    },
+    {
+      "check": "unauthenticated_write",
+      "title": "A record can be changed without signing in",
+      "path": "/rest/v1/items?id=eq.9d51c966-4db9-478b-a00e-91bdcca4cc0f"
+    }
+  ]
+}

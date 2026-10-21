@@ -1,0 +1,67 @@
+{
+  "timestamp": "2026-10-19T09:13:00",
+  "target": "Supabase (RLS, throwaway)",
+  "url": "http://127.0.0.1:54421",
+  "tables_probed": 4,
+  "expected_buggy_tables": [
+    "items",
+    "posts"
+  ],
+  "expected_clean_tables": [
+    "items_secure",
+    "posts_secure"
+  ],
+  "ignored_tables": [
+    "post_titles"
+  ],
+  "flagged_tables": [
+    "items",
+    "posts"
+  ],
+  "isolation_recall": 1.0,
+  "false_positive_on_clean_table": 0.0,
+  "false_positive_on_ignored": 0.0,
+  "wall_clock_seconds": 0.63,
+  "findings": [
+    {
+      "check": "isolation",
+      "title": "One account can read another account's data",
+      "path": "/rest/v1/posts?select=*"
+    },
+    {
+      "check": "unauthenticated",
+      "title": "A record is readable without signing in",
+      "path": "/rest/v1/posts?select=*"
+    },
+    {
+      "check": "cross_account_write",
+      "title": "One account can change another account's data",
+      "path": "/rest/v1/posts?id=eq.d5d23ecd-a7aa-4062-ac01-a34bdf49901d"
+    },
+    {
+      "check": "unauthenticated_write",
+      "title": "A record can be changed without signing in",
+      "path": "/rest/v1/posts?id=eq.d5d23ecd-a7aa-4062-ac01-a34bdf49901d"
+    },
+    {
+      "check": "isolation",
+      "title": "One account can read another account's data",
+      "path": "/rest/v1/items?select=*"
+    },
+    {
+      "check": "unauthenticated",
+      "title": "A record is readable without signing in",
+      "path": "/rest/v1/items?select=*"
+    },
+    {
+      "check": "cross_account_write",
+      "title": "One account can change another account's data",
+      "path": "/rest/v1/items?id=eq.7f252224-520f-452a-8f76-df5000c9bc65"
+    },
+    {
+      "check": "unauthenticated_write",
+      "title": "A record can be changed without signing in",
+      "path": "/rest/v1/items?id=eq.7f252224-520f-452a-8f76-df5000c9bc65"
+    }
+  ]
+}

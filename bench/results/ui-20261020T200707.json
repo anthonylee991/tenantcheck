@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-10-20T20:07:07",
+  "outcomes": [
+    {
+      "url": "http://127.0.0.1:59043/",
+      "logged_in": true,
+      "used_fallback": false,
+      "detail": "heuristics",
+      "expected_fallback": false,
+      "seconds": 1.11
+    },
+    {
+      "url": "http://127.0.0.1:55609/",
+      "logged_in": true,
+      "used_fallback": true,
+      "detail": "no findable form + fallback",
+      "expected_fallback": true,
+      "seconds": 4.3
+    },
+    {
+      "url": "http://127.0.0.1:52910/",
+      "logged_in": false,
+      "used_fallback": false,
+      "detail": "no findable form",
+      "expected_fallback": false,
+      "seconds": 5.66
+    }
+  ],
+  "expected_logged_in": [
+    true,
+    true,
+    false
+  ],
+  "correct": 3,
+  "total": 3,
+  "fallback_used": [
+    false,
+    true,
+    false
+  ],
+  "ok": true
+}
