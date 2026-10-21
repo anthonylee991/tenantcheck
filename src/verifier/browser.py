@@ -21,7 +21,7 @@ from __future__ import annotations
 import logging
 import os
 from collections.abc import Mapping
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import Any, Self
 
 log = logging.getLogger(__name__)
@@ -37,6 +37,17 @@ def _as_bool(value: str | None, default: bool) -> bool:
     if value is None:
         return default
     return value.strip().lower() in _TRUE
+
+
+def _sandbox_failure(exc: BaseException) -> bool:
+    """True when Chromium refused to start because no usable sandbox exists.
+
+    Ubuntu 23.10+ ships an AppArmor policy that blocks the unprivileged user
+    namespaces Chromium's sandbox needs (Docker images and GitHub runners hit this).
+    The failure is only knowable at launch time, so the session retries without it.
+    """
+    text = str(exc).lower()
+    return "sandbox" in text and ("no usable sandbox" in text or "sandboxing failed" in text)
 
 
 def _default_no_sandbox() -> bool:
@@ -185,6 +196,22 @@ class BrowserSession:
         async_playwright = load_engine(self.config.engine)
         self._playwright = await async_playwright().start()
         chromium = self._playwright.chromium
+        try:
+            await self._launch(chromium)
+        except Exception as exc:
+            if self.config.no_sandbox or not _sandbox_failure(exc):
+                raise
+            log.warning(
+                "Chromium could not start its sandbox (%s); retrying without it. "
+                "Set TENANTCHECK_BROWSER_NO_SANDBOX=1 to make this explicit.",
+                exc,
+            )
+            self.config = replace(self.config, no_sandbox=True)
+            await self._launch(chromium)
+        self._context.set_default_timeout(self.config.timeout_ms)
+        return self
+
+    async def _launch(self, chromium: Any) -> None:
         if self.config.user_data_dir:
             self._context = await chromium.launch_persistent_context(
                 self.config.user_data_dir,
@@ -194,8 +221,7 @@ class BrowserSession:
         else:
             self._browser = await chromium.launch(**self.config.launch_kwargs())
             self._context = await self._browser.new_context(**self.config.context_kwargs())
-        self._context.set_default_timeout(self.config.timeout_ms)
-        return self
+
 
     async def new_page(self) -> Any:
         if self._context is None:
